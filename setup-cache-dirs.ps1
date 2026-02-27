@@ -8,6 +8,7 @@ $base = "G:\dev-cache"
 New-Item -Path $base -ItemType Directory -Force
 New-Item -Path "$base\npm" -ItemType Directory -Force
 New-Item -Path "$base\npm-global" -ItemType Directory -Force
+New-Item -Path "$base\pnpm" -ItemType Directory -Force
 New-Item -Path "$base\pip" -ItemType Directory -Force
 New-Item -Path "$base\go-build" -ItemType Directory -Force
 New-Item -Path "$base\go-mod" -ItemType Directory -Force
@@ -22,6 +23,12 @@ New-Item -Path "$base\nuitka-cache" -ItemType Directory -Force
 # ===============================
 npm config set cache "$base\npm" --global
 npm config set prefix "$base\npm-global" --global
+
+# ===============================
+# PNPM
+# ===============================
+pnpm config set store-dir "$base\pnpm" --global
+setx PNPM_STORE_DIR "$base\pnpm" /M
 
 # ===============================
 # PIP
